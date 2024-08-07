@@ -1,0 +1,8 @@
+import statistics
+speed=[1,3,4,5,7,9,20
+m1=statistics.mean(speed)
+m2=statistics.median(speed)
+m3=statistics.mode(speed)
+print(m1,m2,m3)
+Output:
+4.42571428571429 4 1
