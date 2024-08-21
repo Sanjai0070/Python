@@ -1,0 +1,21 @@
+def is_additive_sequence(seq):
+
+    if len(seq) < 3:
+        return False
+    
+    for i in range(2, len(seq)):
+        if seq[i] != seq[i - 1] + seq[i - 2]:
+            return False
+    
+    return True
+
+sequence = [6,6,12,18,30]
+
+if is_additive_sequence(sequence):
+    print("The sequence is additive.")
+else:
+    print("The sequence is not additive.")
+
+OUTPUT: The sequence is additive.
+
+        
