@@ -1,0 +1,8 @@
+total_sum = 0
+for number in range(500):
+    if number % 3 == 0 or number % 5 == 0:
+        total_sum += number
+print("The sum of all multiples of 3 or 5 below 500 is:", total_sum)
+
+OUTPUT:
+        The sum of all multiples of 3 or 5 below 500 is: 57918
