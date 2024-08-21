@@ -1,0 +1,9 @@
+sentence = "God of War"
+width = 70  
+center_aligned = sentence.center(width)
+print("Center Alignment:")
+print(center_aligned)
+
+OUTPUT:
+Center Alignment:
+                             God of War       
