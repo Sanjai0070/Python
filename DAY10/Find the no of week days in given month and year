@@ -1,26 +1,15 @@
 import calendar
-year = int(input("Enter year: "))
-month = int(input("Enter month (1-12): "))
-if 1 <= month <= 12:
-    # Create a calendar for the given month and year
-    cal = calendar.monthcalendar(year, month)
-    weekday_count = 0
-    first_monday = None
-    for week in cal:
-        for day in week:
-            if day != 0:
-                weekday_count += 1
-                if first_monday is None and week[calendar.MONDAY] == day:
-                    first_monday = day
-    print(f"Number of weekdays in {calendar.month_name[month]} {year}: {weekday_count}")
-    if first_monday is not None:
-        print(f"The date of the first Monday in {calendar.month_name[month]} {year} is: {first_monday}")
-    else:
-        print("There is no Monday in this month.")
-else:
-    print("Invalid month. Please enter a value between 1 and 12.")
-OUTPUT:
-Enter year: 2005
-Enter month (1-12): 4
-Number of weekdays (Monday to Friday) in April 2005: 30
-The date of the first Monday in April 2005 is: 4
+from datetime import datetime, timedelta
+year = 2017
+month = 3
+month_calendar = calendar.monthcalendar(year, month)
+days = [day for week in month_calendar for day in week if day != 0]
+weekdays_count = sum(1 for day in days if datetime(year, month, day).weekday() < 5)
+first_day = datetime(year, month, 1)
+offset = (7 - first_day.weekday() + 0) % 7  
+first_monday_date = first_day + timedelta(days=offset)
+print(f"Number of weekdays: {weekdays_count}")
+print(f"First Monday: {first_monday_date.strftime('%Y-%m-%d')}")
+
+OUTPUT: Number of weekdays: 23
+        First Monday: 2017-03-06
